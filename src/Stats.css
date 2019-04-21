@@ -1,0 +1,31 @@
+/* .container{
+  height: 15%;
+  width: 100%; */
+  /* float: left; */
+  /*display: flex;
+  align-items: center;
+  border: 1px solid red;
+} */
+
+.stat {
+  width: 30%;
+  margin-left: 5%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iv {
+  margin-left: 10%;
+  width: 20%;
+}
+
+.ev {
+  margin-left: 10%;
+  width: 20%;
+}
+
+.clearfix {
+  clear: both;
+}

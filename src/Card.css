@@ -1,0 +1,25 @@
+.labels{
+  display: flex;
+  align-items: center;
+  height: 8%;
+  width: 100%;
+}
+
+.iv_label{
+  margin-left: 38%;
+  width: 20%;
+}
+
+.ev_label{
+  margin-left: 9%;
+  width: 20%;
+}
+
+.clearfix {
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
