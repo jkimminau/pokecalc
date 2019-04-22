@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Select from "react-select";
-import "./Pokemon.css";
 
 const pokemon = require("pokemon");
 
 const headerStyle = {
   width: '100%',
-  height: '40%'
+  height: '35%',
+  marginTop: '3%'
 }
 
 const displayStyle = {
@@ -42,31 +42,43 @@ const nameStyle = {
 const pokeselectStyle = {
   width: '100%',
   height: '35%',
-  marginTop: '3%'
+  marginTop: '3%',
+}
+
+const statsBarStyle = {
+  marginTop: '5%',
+  height: '50%',
 }
 
 const levelStyle = {
-  marginTop: '2%',
-  height: '50%',
+  height: '100%',
+  width: '40%',
+  float: 'left',
   display: 'flex',
   alignItems: 'center'
 }
 
  const levelSelectStyle = {
-   width: '70%',
-   marginLeft: '8%'
+   width: '60%',
+   marginLeft: '5%'
  }
 
 const natureStyle = {
-  marginTop: '2%',
-  height: '50%',
+  width: '60%',
+  height: '100%',
   display: 'flex',
   alignItems: 'center'
 }
 
 const natureSelectStyle = {
-  width: '70%',
+  width: '62%',
   marginLeft: '5%'
+}
+
+const statLabelStyle = {
+  display: 'flex',
+  alignItems: 'center'
+  // border: '1px solid green'
 }
 
 const natures = [
@@ -157,25 +169,38 @@ class Header extends Component {
                 </div>
               </div>
               <div className='clearfix'/>
-              <div style={levelStyle}>
-                <p style={{float: 'left', marginLeft: '5%'}}>Level: </p>
-                <div style={levelSelectStyle}>
-                  <Select
-                    defaultValue={options[this.props.lvl - 1]}
-                    options={options}
-                    onChange={this.props.updateLvl}
-                  />
+              <div style={statsBarStyle}>
+                <div style={levelStyle}>
+                  <p style={{marginLeft: '7%'}}>Level: </p>
+                  <div style={levelSelectStyle}>
+                    <Select
+                      defaultValue={options[this.props.lvl - 1]}
+                      options={options}
+                      onChange={this.props.updateLvl}
+                    />
+                  </div>
+                </div>
+                <div style={natureStyle}>
+                  <p style={{marginLeft: '5%'}}>Nature: </p>
+                  <div style={natureSelectStyle}>
+                    <Select
+                      defaultValue={natures[2]}
+                      options={natures}
+                      onChange={this.props.updateNature}
+                    />
+                  </div> 
                 </div>
               </div>
-              <div style={natureStyle}>
-                <p style={{float: 'left', marginLeft: '5%'}}>Nature: </p>
-                <div style={natureSelectStyle}>
-                  <Select
-                    defaultValue={natures[2]}
-                    options={natures}
-                    onChange={this.props.updateNature}
-                  />
-                </div> 
+              <div style={statLabelStyle}>
+                <p style={{
+                  float: 'left',
+                  marginLeft: '54%',
+                  marginTop: '4%'
+                }}>IV</p>
+                <p style={{
+                  marginLeft: '25%',
+                  marginTop: '4%'
+                }}>EV</p>
               </div>
           </div>
         </div>

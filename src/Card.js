@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 import Header from "./Header";
-import Pokemon from "./Pokemon";
 import Stat from "./Stat";
-import Level from "./Level";
 import "./Card.css";
 
 const cardStyle = {
@@ -11,7 +9,7 @@ const cardStyle = {
   width: '30%',
   height: '100%',
   float: 'left',
-  'marginLeft': '1%',
+  'marginLeft': '2%',
   'backgroundColor': 'white',
   'boxShadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40)'
 }
@@ -24,36 +22,6 @@ const mobileStyle = {
   'marginLeft': '2.5%',
   'backgroundColor': 'white',
   'boxShadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40)',
-}
-
-const headerStyle = {
-  width: '100%',
-  height: '40%',
-  border: '1px solid red'
-}
-
-const displayStyle = {
-  width: '100%',
-  height: '45%',
-  float: 'left',
-}
-
-const spriteStyle = {
-  width: '36%',
-  height: '100%',
-  float: 'left',
-  display: 'flex',
-  border: '1px solid blue',
-  justifyContent: 'center',
-  alignItems: 'center'
-}
-
-const nameStyle = {
-  'marginLeft': '2.5%',
-  width: '60%',
-  border: '1px solid blue',
-  height: '100%',
-  float: 'left'
 }
 
 class Card extends Component {
@@ -144,23 +112,6 @@ class Card extends Component {
     if (p !== null) {
       return (
         <div style={this.props.device === undefined || this.props.device !== 'mobile' ? cardStyle : mobileStyle}>
-          {/* <div style={headerStyle}>
-            <div style={displayStyle}>
-              <div style={spriteStyle}>
-                <img src={(this.state.shiny === true ? 
-                  "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front-shiny/" :
-                  "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front/") +
-                  p.name +
-                  ".gif"
-                }
-                alt="sprite"
-                onClick={this.toggleShiny}/>
-              </div>
-              <div style={nameStyle}>
-              </div>
-              <div className='clearfix'/>
-            </div>
-          </div> */}
           <Header 
             name={p.name.charAt(0).toUpperCase() + p.name.slice(1)}
             url={this.state.shiny === true ? 
@@ -177,29 +128,6 @@ class Card extends Component {
             updateLvl={this.updateLvl}
             updateNature={this.updateNature}
           />
-          {/* <Pokemon
-            name={p.name.charAt(0).toUpperCase() + p.name.slice(1)}
-            url={this.state.shiny === true ? 
-              "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front-shiny/" +
-              p.name +
-              ".gif" :
-              "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front/" +
-              p.name +
-              ".gif"
-            }
-            setPokemon={this.setPokemon}
-            toggleShiny={this.toggleShiny}
-          />
-          <Level
-            lvl={this.state.level}
-            updateLvl={this.updateLvl}
-            updateNature={this.updateNature}
-          />
-          <div className='labels'>
-            <label className='iv_label'>IV</label>
-            <label className='ev_label'>EV</label>
-          </div>
-          <div className='clearfix'/> */}
           <Stat
             name="HP"
             id="hp"
