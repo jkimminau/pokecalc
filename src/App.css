@@ -6,11 +6,11 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: #87253f;
+  background-color: #302a2b;
   /* overflow: hidden; */
 }
 
-.row{
+.row {
   margin-top: 5%;
   height: 70%;
   display: flex;
@@ -26,6 +26,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+h1 {
+  color: #2b7cff;
 }
 
 .App-header {

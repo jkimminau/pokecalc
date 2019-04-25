@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import "./App.css";
 import Card from "./Card";
 
-const isMobileDevice = typeof window.orientation !== "undefined" || navigator.userAgent.indexOf('IEMobile') !== -1;
+const isMobileDevice =
+  typeof window.orientation !== "undefined" ||
+  navigator.userAgent.indexOf("IEMobile") !== -1;
 
 class App extends Component {
-  render() {  
-    if (isMobileDevice === false){
+  render() {
+    if (isMobileDevice === false) {
       return (
         <div className="App">
           <h1>Pokemon Stat Calculator</h1>
-          <div className='row'>
+          <div className="row">
             <Card />
             <Card />
             <Card />
@@ -26,8 +28,8 @@ class App extends Component {
       return (
         <div className="App">
           <h1>Pokemon Stat Calculator</h1>
-          <div className='solo'>
-              <Card device='mobile'/>
+          <div className="solo">
+            <Card device="mobile" />
           </div>
         </div>
       );

@@ -5,24 +5,26 @@ import Stat from "./Stat";
 import "./Card.css";
 
 const cardStyle = {
-  'borderRadius': '20px',
-  width: '30%',
-  height: '100%',
-  float: 'left',
-  'marginLeft': '2%',
-  'backgroundColor': 'white',
-  'boxShadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40)'
-}
+  border: "2px solid #2b7cff",
+  borderRadius: "20px",
+  width: "30%",
+  height: "100%",
+  float: "left",
+  marginLeft: "2%",
+  backgroundColor: "white",
+  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40)"
+};
 
 const mobileStyle = {
-  'borderRadius': '20px',
-  width: '95%',
-  height: '98%',
-  float: 'left',
-  'marginLeft': '2.5%',
-  'backgroundColor': 'white',
-  'boxShadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40)',
-}
+  border: "2px solid #2b7cff",
+  borderRadius: "20px",
+  width: "95%",
+  height: "98%",
+  float: "left",
+  marginLeft: "2.5%",
+  backgroundColor: "white",
+  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40)"
+};
 
 class Card extends Component {
   constructor(props) {
@@ -31,7 +33,7 @@ class Card extends Component {
       pokejson: null,
       json: null,
       level: 100,
-      nature: 'adamant',
+      nature: "adamant",
       shiny: false,
       iv: {
         hp: 31,
@@ -59,8 +61,10 @@ class Card extends Component {
     this.setPokemon = this.setPokemon.bind(this);
   }
 
-  componentDidMount(){
-    this.setPokemon(String([...Array(809).keys()][Math.floor(Math.random() * 809)]));
+  componentDidMount() {
+    this.setPokemon(
+      String([...Array(809).keys()][Math.floor(Math.random() * 809)])
+    );
   }
 
   checkResponse(res) {
@@ -77,12 +81,12 @@ class Card extends Component {
       .then(res => res.json())
       .then(data => this.setState({ pokejson: data }))
       .catch(function error() {
-        console.log('error finding pokemon: ' + name)
+        console.log("error finding pokemon: " + name);
       });
-      this.setState({shiny: false});
+    this.setState({ shiny: false });
   }
 
-  toggleShiny(e){
+  toggleShiny(e) {
     var tmp = this.state;
     tmp.shiny = !tmp.shiny;
     this.setState(tmp);
@@ -93,7 +97,7 @@ class Card extends Component {
     tmp.level = e.value;
     this.setState(tmp);
   }
-  
+
   updateNature(e) {
     var tmp = this.state;
     tmp.nature = e.value.toLowerCase();
@@ -111,16 +115,23 @@ class Card extends Component {
     let p = this.state.pokejson;
     if (p !== null) {
       return (
-        <div style={this.props.device === undefined || this.props.device !== 'mobile' ? cardStyle : mobileStyle}>
-          <Header 
+        <div
+          style={
+            this.props.device === undefined || this.props.device !== "mobile"
+              ? cardStyle
+              : mobileStyle
+          }
+        >
+          <Header
             name={p.name.charAt(0).toUpperCase() + p.name.slice(1)}
-            url={this.state.shiny === true ? 
-              "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front-shiny/" +
-              p.name +
-              ".gif" :
-              "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front/" +
-              p.name +
-              ".gif"
+            url={
+              this.state.shiny === true
+                ? "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front-shiny/" +
+                  p.name +
+                  ".gif"
+                : "https://raw.githubusercontent.com/tdmalone/pokecss-media/master/graphics/pokemon/ani-front/" +
+                  p.name +
+                  ".gif"
             }
             setPokemon={this.setPokemon}
             toggleShiny={this.toggleShiny}
@@ -197,9 +208,7 @@ class Card extends Component {
         </div>
       );
     } else {
-      return (
-        <div/>
-      );
+      return <div />;
     }
   }
 }
